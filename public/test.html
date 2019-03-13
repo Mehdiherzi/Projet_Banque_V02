@@ -1,0 +1,84 @@
+<!DOCTYPE html >
+<html ng-app='miageBanq'>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.7.7/angular-resource.js" type="text/javascript"></script>
+
+    <script src="/miagebanque.js" type="text/javascript"></script>
+
+    <script src="./banque.js" type="text/javascript"></script>
+    <meta charset="utf-8" />
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+</head>
+
+<body>
+
+    {{1+2}}
+    <!--
+    <div ng-controller="MonCtrl">
+        <h1>test</h1>
+        </form>
+        <pre>test op1 <span ng-model="tet()"></span></pre>
+        {{op1}}
+
+        <div ng-model="tet2()">
+            <ul>
+                <li ng-repeat="element in tableau">{{element}}</li>
+            </ul>
+        </div>
+        <div ng-model="tet3()">
+            <ul>
+                <li ng-repeat="element in tableau">{{element}}</li>
+            </ul>
+        </div>
+    </div>
+-->
+
+    <!--
+    <div ng-app="miageBanq" ng-controller="friendController as vm">
+        {{vm.friend}}
+    </div>
+    <button ng-click="vm.getFriend()">Get User</button>
+    <button ng-show="vm.friend" ng-click="vm.messageFriend(vm.friend)">Message Friend</button>
+
+
+
+    </div>
+-->
+
+
+
+    <div ng-controller="MainCtrl">
+
+        <p>Id <input type="text" ng-model=obj.id /></p>
+        <p>Somme <input type="text" ng-model=obj.somme /></p>
+
+    <button ng-click="creercompte()">creercompte</button>
+    <button ng-click="positioncompte()">position du compte</button>
+    <p>{{moncompte}}</p>
+    <p>{{macrea}}</p>
+
+    <p>result : {{mesg | json }}</p>
+
+
+
+    </div>
+
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
