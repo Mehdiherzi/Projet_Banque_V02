@@ -1,0 +1,434 @@
+[33mcommit 34c33b2bca94f9b4f83e10facdf1ef9b0fdb3ce6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: meds <mehdi.herzi@gmail.com>
+Date:   Wed Mar 13 16:22:49 2019 +0100
+
+    tous commit
+
+[1mdiff --git a/angulars b/angulars[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/node_modules/content-disposition/LICENSE b/node_modules/content-disposition/LICENSE[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b7dce6c[m
+[1m--- /dev/null[m
+[1m+++ b/node_modules/content-disposition/LICENSE[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m(The MIT License)[m
+[32m+[m
+[32m+[m[32mCopyright (c) 2014 Douglas Christopher Wilson[m
+[32m+[m
+[32m+[m[32mPermission is hereby granted, free of charge, to any person obtaining[m
+[32m+[m[32ma copy of this software and associated documentation files (the[m
+[32m+[m[32m'Software'), to deal in the Software without restriction, including[m
+[32m+[m[32mwithout limitation the rights to use, copy, modify, merge, publish,[m
+[32m+[m[32mdistribute, sublicense, and/or sell copies of the Software, and to[m
+[32m+[m[32mpermit persons to whom the Software is furnished to do so, subject to[m
+[32m+[m[32mthe following conditions:[m
+[32m+[m
+[32m+[m[32mThe above copyright notice and this permission notice shall be[m
+[32m+[m[32mincluded in all copies or substantial portions of the Software.[m
+[32m+[m
+[32m+[m[32mTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,[m
+[32m+[m[32mEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF[m
+[32m+[m[32mMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.[m
+[32m+[m[32mIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY[m
+[32m+[m[32mCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,[m
+[32m+[m[32mTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE[m
+[32m+[m[32mSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.[m
+[1mdiff --git a/node_modules/content-disposition/README.md b/node_modules/content-disposition/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..992d19a[m
+[1m--- /dev/null[m
+[1m+++ b/node_modules/content-disposition/README.md[m
+[36m@@ -0,0 +1,141 @@[m
+[32m+[m[32m# content-disposition[m
+[32m+[m
+[32m+[m[32m[![NPM Version][npm-image]][npm-url][m
+[32m+[m[32m[![NPM Downloads][downloads-image]][downloads-url][m
+[32m+[m[32m[![Node.js Version][node-version-image]][node-version-url][m
+[32m+[m[32m[![Build Status][travis-image]][travis-url][m
+[32m+[m[32m[![Test Coverage][coveralls-image]][coveralls-url][m
+[32m+[m
+[32m+[m[32mCreate and parse HTTP `Content-Disposition` header[m
+[32m+[m
+[32m+[m[32m## Installation[m
+[32m+[m
+[32m+[m[32m```sh[m
+[32m+[m[32m$ npm install content-disposition[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m## API[m
+[32m+[m
+[32m+[m[32m```js[m
+[32m+[m[32mvar contentDisposition = require('content-disposition')[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m### contentDisposition(filename, options)[m
+[32m+[m
+[32m+[m[32mCreate an attachment `Content-Disposition` header value using the given file name,[m
+[32m+[m[32mif supplied. The `filename` is optional and if no file name is desired, but you[m
+[32m+[m[32mwant to specify `options`, set `filename` to `undefined`.[m
+[32m+[m
+[32m+[m[32m```js[m
+[32m+[m[32mres.setHeader('Content-Disposition', contentDisposition('∫ maths.pdf'))[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m**note** HTTP headers are of the ISO-8859-1 character set. If you are writing this[m
+[32m+[m[32mheader through a means different from `setHeader` in Node.js, you'll want to specify[m
+[32m+[m[32mthe `'binary'` encoding in Node.js.[m
+[32m+[m
+[32m+[m[32m#### Options[m
+[32m+[m
+[32m+[m[32m`contentDisposition` accepts these properties in the options object.[m
+[32m+[m
+[32m+[m[32m##### fallback[m
+[32m+[m
+[32m+[m[32mIf the `filename` option is outside ISO-8859-1, then the file name is actually[m
+[32m+[m[32mstored in a supplemental field for clients that support Unicode file names and[m
+[32m+[m[32ma ISO-8859-1 version of the file name is automatically generated.[m
+[32m+[m
+[32m+[m[32mThis specifies the ISO-8859-1 file name to override the automatic generation or[m
+[32m+[m[32mdisables the generation all together, defaults to `true`.[m
+[32m+[m
+[32m+[m[32m  - A string will specify the ISO-8859-1 file name to use in place of automatic[m
+[32m+[m[32m    generation.[m
+[32m+[m[32m  - `false` will disable including a ISO-8859-1 file name and only include the[m
+[32m+[m[32m    Unicode version (unless the file name is already ISO-8859-1).[m
+[32m+[m[32m  - `true` will enable automatic generation if the file name is outside ISO-8859-1.[m
+[32m+[m
+[32m+[m[32mIf the `filename` option is ISO-8859-1 and this option is specified and has a[m
+[32m+[m[32mdifferent value, then the `filename` option is encoded in the extended field[m
+[32m+[m[32mand this set as the fallback field, even though they are both ISO-8859-1.[m
+[32m+[m
+[32m+[m[32m##### type[m
+[32m+[m
+[32m+[m[32mSpecifies the disposition type, defaults to `"attachment"`. This can also be[m
+[32m+[m[32m`"inline"`, or any other value (all values except inline are treated like[m
+[32m+[m[32m`attachment`, but can convey additional information if both parties agree to[m
+[32m+[m[32mit). The type is normalized to lower-case.[m
+[32m+[m
+[32m+[m[32m### contentDisposition.parse(string)[m
+[32m+[m
+[32m+[m[32m```js[m
+[32m+[m[32mvar disposition = contentDisposition.parse('attachment; filename="EURO rates.txt"; filename*=UTF-8\'\'%e2%82%ac%20rates.txt');[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mParse a `Content-Disposition` header string. This automatically handles extended[m
+[32m+[m[32m("Unicode") parameters by decoding them and providing them under the standard[m
+[32m+[m[32mparameter name. This will return an object with the following properties (examples[m
+[32m+[m[32mare shown for the string `'attachment; filename="EURO rates.txt"; filename*=UTF-8\'\'%e2%82%ac%20rates.txt'`):[m
+[32m+[m
+[32m+[m[32m - `type`: The disposition type (always lower case). Example: `'attachment'`[m
+[32m+[m
+[32m+[m[32m - `parameters`: An object of the parameters in the disposition (name of parameter[m
+[32m+[m[32m   always lower case and extended versions replace non-extended versions). Example:[m
+[32m+[m[32m   `{filename: "€ rates.txt"}`[m
+[32m+[m
+[32m+[m[32m## Examples[m
+[32m+[m
+[32m+[m[32m### Send a file for download[m
+[32m+[m
+[32m+[m[32m```js[m
+[32m+[m[32mvar contentDisposition = require('content-disposition')[m
+[32m+[m[32mvar destroy = require('destroy')[m
+[32m+[m[32mvar http = require('http')[m
+[32m+[m[32mvar onFinished = require('on-finished')[m
+[32m+[m
+[32m+[m[32mvar filePath = '/path/to/public/plans.pdf'[m
+[32m+[m
+[32m+[m[32mhttp.createServer(function onRequest(req, res) {[m
+[32m+[m[32m  // set headers[m
+[32m+[m[32m  res.setHeader('Content-Type', 'application/pdf')[m
+[32m+[m[32m  res.setHeader('Content-Disposition', contentDisposition(filePath))[m
+[32m+[m
+[32m+[m[32m  // send file[m
+[32m+[m[32m  var stream = fs.createReadStream(filePath)[m
+[32m+[m[32m  stream.pipe(res)[m
+[32m+[m[32m  onFinished(res, function (err) {[m
+[32m+[m[32m    destroy(stream)[m
+[32m+[m[32m  })[m
+[32m+[m[32m})[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m## Testing[m
+[32m+[m
+[32m+[m[32m```sh[m
+[32m+[m[32m$ npm test[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m## References[m
+[32m+[m
+[32m+[m[32m- [RFC 2616: Hypertext Transfer Protocol -- HTTP/1.1][rfc-2616][m
+[32m+[m[32m- [RFC 5987: Character Set and Language Encoding for Hypertext Transfer Protocol (HTTP) Header Field Parameters][rfc-5987][m
+[32m+[m[32m- [RFC 6266: Use of the Content-Disposition Header Field in the Hypertext Transfer Protocol (HTTP)][rfc-6266][m
+[32m+[m[32m- [Test Cases for HTTP Content-Disposition header field (RFC 6266) and the Encodings defined in RFCs 2047, 2231 and 5987][tc-2231][m
+[32m+[m
+[32m+[m[32m[rfc-2616]: https://tools.ietf.org/html/rfc2616[m
+[32m+[m[32m[rfc-5987]: https://tools.ietf.org/html/rfc5987[m
+[32m+[m[32m[rfc-6266]: https://tools.ietf.org/html/rfc6266[m
+[32m+[m[32m[tc-2231]: http://greenbytes.de/tech/tc2231/[m
+[32m+[m
+[32m+[m[32m## License[m
+[32m+[m
+[32m+[m[32m[MIT](LICENSE)[m
+[32m+[m
+[32m+[m[32m[npm-image]: https://img.shields.io/npm/v/content-disposition.svg?style=flat[m
+[32m+[m[32m[npm-url]: https://npmjs.org/package/content-disposition[m
+[32m+[m[32m[node-version-image]: https://img.shields.io/node/v/content-disposition.svg?style=flat[m
+[32m+[m[32m[node-version-url]: https://nodejs.org/en/download[m
+[32m+[m[32m[travis-image]: https://img.shields.io/travis/jshttp/content-disposition.svg?style=flat[m
+[32m+[m[32m[travis-url]: https://travis-ci.org/jshttp/content-disposition[m
+[32m+[m[32m[coveralls-image]: https://img.shields.io/coveralls/jshttp/content-disposition.svg?style=flat[m
+[32m+[m[32m[coveralls-url]: https://coveralls.io/r/jshttp/content-disposition?branch=master[m
+[32m+[m[32m[downloads-image]: https://img.shields.io/npm/dm/content-disposition.svg?style=flat[m
+[32m+[m[32m[downloads-url]: https://npmjs.org/package/content-disposition[m
+[1mdiff --git a/node_modules/content-type/HISTORY.md b/node_modules/content-type/HISTORY.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8f5cb70[m
+[1m--- /dev/null[m
+[1m+++ b/node_modules/content-type/HISTORY.md[m
+[36m@@ -0,0 +1,24 @@[m
+[32m+[m[32m1.0.4 / 2017-09-11[m
+[32m+[m[32m==================[m
+[32m+[m
+[32m+[m[32m  * perf: skip parameter parsing when no parameters[m
+[32m+[m
+[32m+[m[32m1.0.3 / 2017-09-10[m
+[32m+[m[32m==================[m
+[32m+[m
+[32m+[m[32m  * perf: remove argument reassignment[m
+[32m+[m
+[32m+[m[32m1.0.2 / 2016-05-09[m
+[32m+[m[32m==================[m
+[32m+[m
+[32m+[m[32m  * perf: enable strict mode[m
+[32m+[m
+[32m+[m[32m1.0.1 / 2015-02-13[m
+[32m+[m[32m==================[m
+[32m+[m
+[32m+[m[32m  * Improve missing `Content-Type` header error message[m
+[32m+[m
+[32m+[m[32m1.0.0 / 2015-02-01[m
+[32m+[m[32m==================[m
+[32m+[m
+[32m+[m[32m  * Initial implementation, derived from `media-typer@0.3.0`[m
+[1mdiff --git a/node_modules/content-type/LICENSE b/node_modules/content-type/LICENSE[m
+[1mnew file mode 100644[m
+[1mindex 0000000..34b1a2d[m
+[1m--- /dev/null[m
+[1m+++ b/node_modules/content-type/LICENSE[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m(The MIT License)[m
+[32m+[m
+[32m+[m[32mCopyright (c) 2015 Douglas Christopher Wilson[m
+[32m+[m
+[32m+[m[32mPermission is hereby granted, free of charge, to any person obtaining[m
+[32m+[m[32ma copy of this software and associated documentation files (the[m
+[32m+[m[32m'Software'), to deal in the Software without restriction, including[m
+[32m+[m[32mwithout limitation the rights to use, copy, modify, merge, publish,[m
+[32m+[m[32mdistribute, sublicense, and/or sell copies of the Software, and to[m
+[32m+[m[32mpermit persons to whom the Software is furnished to do so, subject to[m
+[32m+[m[32mthe following conditions:[m
+[32m+[m
+[32m+[m[32mThe above copyright notice and this permission notice shall be[m
+[32m+[m[32mincluded in all copies or substantial portions of the Software.[m
+[32m+[m
+[32m+[m[32mTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,[m
+[32m+[m[32mEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF[m
+[32m+[m[32mMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.[m
+[32m+[m[32mIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY[m
+[32m+[m[32mCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,[m
+[32m+[m[32mTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE[m
+[32m+[m[32mSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.[m
+[1mdiff --git a/node_modules/content-type/README.md b/node_modules/content-type/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3ed6741[m
+[1m--- /dev/null[m
+[1m+++ b/node_modules/content-type/README.md[m
+[36m@@ -0,0 +1,92 @@[m
+[32m+[m[32m# content-type[m
+[32m+[m
+[32m+[m[32m[![NPM Version][npm-image]][npm-url][m
+[32m+[m[32m[![NPM Downloads][downloads-image]][downloads-url][m
+[32m+[m[32m[![Node.js Version][node-version-image]][node-version-url][m
+[32m+[m[32m[![Build Status][travis-image]][travis-url][m
+[32m+[m[32m[![Test Coverage][coveralls-image]][coveralls-url][m
+[32m+[m
+[32m+[m[32mCreate and parse HTTP Content-Type header according to RFC 7231[m
+[32m+[m
+[32m+[m[32m## Installation[m
+[32m+[m
+[32m+[m[32m```sh[m
+[32m+[m[32m$ npm install content-type[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m## API[m
+[32m+[m
+[32m+[m[32m```js[m
+[32m+[m[32mvar contentType = require('content-type')[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m### contentType.parse(string)[m
+[32m+[m
+[32m+[m[32m```js[m
+[32m+[m[32mvar obj = contentType.parse('image/svg+xml; charset=utf-8')[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mParse a content type string. This will return an object with the following[m
+[32m+[m[32mproperties (examples are shown for the string `'image/svg+xml; charset=utf-8'`):[m
+[32m+[m
+[32m+[m[32m - `type`: The media type (the type and subtype, always lower case).[m
+[32m+[m[32m   Example: `'image/svg+xml'`[m
+[32m+[m
+[32m+[m[32m - `parameters`: An object of the parameters in the media type (name of parameter[m
+[32m+[m[32m   always lower case). Example: `{charset: 'utf-8'}`[m
+[32m+[m
+[32m+[m[32mThrows a `TypeError` if the string is missing or invalid.[m
+[32m+[m
+[32m+[m[32m### contentType.parse(req)[m
+[32m+[m
+[32m+[m[32m```js[m
+[32m+[m[32mvar obj = contentType.parse(req)[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mParse the `content-type` header from the given `req`. Short-cut for[m
+[32m+[m[32m`contentType.parse(req.headers['content-type'])`.[m
+[32m+[m
+[32m+[m[32mThrows a `TypeError` if the `Content-Type` header is missing or invalid.[m
+[32m+[m
+[32m+[m[32m### contentType.parse(res)[m
+[32m+[m
+[32m+[m[32m```js[m
+[32m+[m[32mvar obj = contentType.parse(res)[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mParse the `content-type` header set on the given `res`. Short-cut for[m
+[32m+[m[32m`contentType.parse(res.getHeader('content-type'))`.[m
+[32m+[m
+[32m+[m[32mThrows a `TypeError` if the `Content-Type` header is missing or invalid.[m
+[32m+[m
+[32m+[m[32m### contentType.format(obj)[m
+[32m+[m
+[32m+[m[32m```js[m
+[32m+[m[32mvar str = contentType.format({type: 'image/svg+xml'})[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mFormat an object into a content type string. This will return a string of the[m
+[32m+[m[32mcontent type for the given object with the following properties (examples are[m
+[32m+[m[32mshown that produce the string `'image/svg+xml; charset=utf-8'`):[m
+[32m+[m
+[32m+[m[32m - `type`: The media type (will be lower-cased). Example: `'image/svg+xml'`[m
+[32m+[m
+[32m+[m[32m - `parameters`: An object of the parameters in the media type (name of the[m
+[32m+[m[32m   parameter will be lower-cased). Example: `{charset: 'utf-8'}`[m
+[32m+[m
+[32m+[m[32mThrows a `TypeError` if the object contains an invalid type or parameter names.[m
+[32m+[m
+[32m+[m[32m## License[m
+[32m+[m
+[32m+[m[32m[MIT](LICENSE)[m
+[32m+[m
+[32m+[m[32m[npm-image]: https://img.shields.io/npm/v/content-type.svg[m
+[32m+[m[32m[npm-url]: https://npmjs.org/package/content-type[m
+[32m+[m[32m[node-version-image]: https://img.shields.io/node/v/content-type.svg[m
+[32m+[m[32m[node-version-url]: http://nodejs.org/download/[m
+[32m+[m[32m[travis-image]: https://img.shields.io/travis/jshttp/content-type/master.svg[m
+[32m+[m[32m[travis-url]: https://travis-ci.org/jshttp/content-type[m
+[32m+[m[32m[coveralls-image]: https://img.shields.io/coveralls/jshttp/content-type/master.svg[m
+[32m+[m[32m[coveralls-url]: https://coveralls.io/r/jshttp/content-type[m
+[32m+[m[32m[downloads-image]: https://img.shields.io/npm/dm/content-type.svg[m
+[32m+[m[32m[downloads-url]: https://npmjs.org/package/content-type[m
+[1mdiff --git a/node_modules/content-type/index.js b/node_modules/content-type/index.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6ce03f2[m
+[1m--- /dev/null[m
+[1m+++ b/node_modules/content-type/index.js[m
+[36m@@ -0,0 +1,222 @@[m
+[32m+[m[32m/*![m
+[32m+[m[32m * content-type[m
+[32m+[m[32m * Copyright(c) 2015 Douglas Christopher Wilson[m
+[32m+[m[32m * MIT Licensed[m
+[32m+[m[32m */[m
+[32m+[m
+[32m+[m[32m'use strict'[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m * RegExp to match *( ";" parameter ) in RFC 7231 sec 3.1.1.1[m
+[32m+[m[32m *[m
+[32m+[m[32m * parameter     = token "=" ( token / quoted-string )[m
+[32m+[m[32m * token         = 1*tchar[m
+[32m+[m[32m * tchar         = "!" / "#" / "$" / "%" / "&" / "'" / "*"[m
+[32m+[m[32m *               / "+" / "-" / "." / "^" / "_" / "`" / "|" / "~"[m
+[32m+[m[32m *               / DIGIT / ALPHA[m
+[32m+[m[32m *               ; any VCHAR, except delimiters[m
+[32m+[m[32m * quoted-string = DQUOTE *( qdtext / quoted-pair ) DQUOTE[m
+[32m+[m[32m * qdtext        = HTAB / SP / %x21 / %x23-5B / %x5D-7E / obs-text[m
+[32m+[m[32m * obs-text      = %x80-FF[m
+[32m+[m[32m * quoted-pair   = "\" ( HTAB / SP / VCHAR / obs-text )[m
+[32m+[m[32m */[m
+[32m+[m[32mvar PARAM_REGEXP = /; *([!#$%&'*+.^_`|~0-9A-Za-z-]+) *= *("(?:[\u000b\u0020\u0021\u0023-\u005b\u005d-\u007e\u0080-\u00ff]|\\[\u000b\u0020-\u00ff])*"|[!#$%&'*+.^_`|~0-9A-Za-z-]+) */g[m
+[32m+[m[32mvar TEXT_REGEXP = /^[\u000b\u0020-\u007e\u0080-\u00ff]+$/[m
+[32m+[m[32mvar TOKEN_REGEXP = /^[!#$%&'*+.^_`|~0-9A-Za-z-]+$/[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m * RegExp to match quoted-pair in RFC 7230 sec 3.2.6[m
+[32m+[m[32m *[m
+[32m+[m[32m * quoted-pair = "\" ( HTAB / SP / VCHAR / obs-text )[m
+[32m+[m[32m * obs-text    = %x80-FF[m
+[32m+[m[32m */[m
+[32m+[m[32mvar QESC_REGEXP = /\\([\u000b\u0020-\u00ff])/g[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m * RegExp to match chars that must be quoted-pair in RFC 7230 sec 3.2.6[m
+[32m+[m[32m */[m
+[32m+[m[32mvar QUOTE_REGEXP = /([\\"])/g[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m * RegExp to match type in RFC 7231 sec 3.1.1.1[m
+[32m+[m[32m *[m
+[32m+[m[32m * media-type = type "/" subtype[m
+[32m+[m[32m * type       = token[m
+[32m+[m[32m * subtype    = token[m
+[32m+[m[32m */[m
+[32m+[m[32mvar TYPE_REGEXP = /^[!#$%&'*+.^_`|~0-9A-Za-z-]+\/[!#$%&'*+.^_`|~0-9A-Za-z-]+$/[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m * Module exports.[m
+[32m+[m[32m * @public[m
+[32m+[m[32m */[m
+[32m+[m
+[32m+[m[32mexports.format = format[m
+[32m+[m[32mexports.parse = parse[m
+[32m+[m
+[32m+[m[32m/**[m
+[32m+[m[32m * Format object to media type.[m
+[32m+[m[32m *[m
+[32m+[m[32m * @param {object} obj[m
+[32m+[m[32m * @return {string}[m
+[32m+[m[32m * @public[m
+[32m+[m[32m */[m
+[32m+[m
+[32m+[m[32mfunction format (obj) {[m
+[32m+[m[32m  if (!obj || typeof obj !== 'object') {[m
+[32m+[m[32m    throw new TypeError('argument obj is required')[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  var parameters = obj.parameters[m
+[32m+[m[32m  var type = obj.type[m
+[32m+[m
+[32m+[m[32m  if (!type || !TYPE_REGEXP.test(type)) {[m
+[32m+[m[32m    throw new TypeError('invalid type')[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  var string = type[m
+[32m+[m
+[32m+[m[32m  // append parameters[m
+[32m+[m[32m  if (parameters && typeof parameters === 'object') {[m
+[32m+[m[32m    var param[m
+[32m+[m[32m    var params = Object.keys(parameters).sort()[m
+[32m+[m
+[32m+[m[32m    for (var i = 0; i < params.length; i++) {[m
+[32m+[m[32m      param = params[i][m
+[32m+[m
+[32m+[m[32m      if (!TOKEN_REGEXP.test(param)) {[m
+[32m+[m[32m        throw new TypeError('invalid parameter name')
