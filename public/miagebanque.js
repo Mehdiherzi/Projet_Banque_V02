@@ -196,12 +196,14 @@ monappbanq.controller('controle000', function ($scope) {
 
     $scope.test = 0;
 
-    $scope.alpha = function ($scope) {
-        /*  if ($scope.test == 4) {
-              $scope.test = 100;
-          }
-          */
-       return $scope.test;
+    $scope.alpha = function () {
+          if ($scope.test == 4) {
+          return  $scope.test = 100;
+
+          }else 
+          return  $scope.test =0;
+        
+       
 
     }
 
