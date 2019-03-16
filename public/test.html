@@ -21,7 +21,7 @@
 
 <body>
 
-    {{1+2}}
+  <!-- {{1+2}}--> 
     <!--
     <div ng-controller="MonCtrl">
         <h1>test</h1>
@@ -55,14 +55,17 @@
 -->
 
 
-
+    !
+    <!-- 
     <div ng-controller="MainCtrl">
 
         <p>Id <input type="text" ng-model=obj.id /></p>
         <p>Somme <input type="text" ng-model=obj.somme /></p>
-
+    <button ng-click="test()" ng-model=$scope.obj.id> </button>
     <button ng-click="creercompte()">creercompte</button>
     <button ng-click="positioncompte()">position du compte</button>
+  
+      <p>{{test()}}</p>
     <p>{{moncompte}}</p>
     <p>{{macrea}}</p>
 
@@ -71,11 +74,22 @@
 
 
     </div>
+-->
 
 
+    <div ng-controller=controle000>
+
+        <input type="text" ng-model=test>
+        <button ng-click="alpha()">alpha</button>
+        <p>{{test}}<br>
+            <p>{{1+1}}</p>
+    </div>
 
 
+   {{"etp"+1}}
 
+    <div ng-controller=controle001>
+       {{test1}}
     </div>
 
 
