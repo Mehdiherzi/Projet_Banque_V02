@@ -208,10 +208,9 @@ monappbanq.controller('controle000', function ($scope) {
     }
 
 })
- /*
+
 monappbanq.controller('controle001',function ($scope) {
 
   $scope.test1=1000;
 })
 
-*/
