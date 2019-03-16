@@ -189,7 +189,7 @@ monappbanq.controller('MainCtrl', function ($scope, $http) {
 
 
 
-// test controle angalar attache 
+// test coter "client" controle angalar attache 
 monappbanq.controller('controle000', function ($scope) {
 
 
@@ -213,7 +213,7 @@ monappbanq.controller('controle001',function ($scope) {
 
   $scope.test1=1000;
 
-})
-
+}) 
+// test coter "client" controle angalar attache  
 monappbanq.controller()
 
