@@ -190,16 +190,17 @@ monappbanq.controller('MainCtrl', function ($scope, $http) {
 
 
 // test comtrole angalar 
-monappbanq.controller('controle000', function ($scope) {
+monappbanq.controller('controle000',function($scope) {
 
 
 
     $scope.test = 0;
 
-    $scope.alpha = function ($scope) {
+    $scope.alpha = function($scope) {
         if ($scope.test == 4) {
             $scope.test = 100;
         }
+
     }
 
 })
