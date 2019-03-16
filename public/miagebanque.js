@@ -153,12 +153,19 @@ monappbanq.controller('MainCtrl',function ($scope, MaFactory) {
 */
 
 
+// test  $http
 
-monappbanq.controller('MainCtrl', function ($scope,$http) {
-    
-     $scope.id = $scope.obj.id;
-    
-    $scope.positioncompte = function ($scope,$http) {
+
+monappbanq.controller('MainCtrl', function ($scope, $http) {
+
+    $scope.id = $scope.obj.id;
+
+    $scope.test = function () {
+        return $scope.obj.id;
+    }
+
+
+    $scope.positioncompte = function ($scope) {
 
         $http.get("/compte/")
             .then(function (response) {
@@ -168,13 +175,37 @@ monappbanq.controller('MainCtrl', function ($scope,$http) {
     }
 
 
-    $scope.creecompte = function ($scope,$http) {
-           
+    $scope.creecompte = function ($scope, $http) {
 
-        $http.post("/compte/"+$scope.id)
+
+        $http.post("/compte/" + $scope.id)
             .then(function (response) {
                 $scope.macrea = response.data;
 
             });
 
-        }});
+    }
+});
+
+
+
+// test comtrole angalar 
+monappbanq.controller('controle000', function ($scope) {
+
+
+
+    $scope.test = 0;
+
+    $scope.alpha = function ($scope) {
+        if ($scope.test == 4) {
+            $scope.test = 100;
+        }
+    }
+
+})
+
+
+monappbanq.controller('controle001',function ($scope) {
+
+    $scope.test1=1000;
+})
