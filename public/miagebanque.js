@@ -221,14 +221,21 @@ monappbanq.controller('controle001',function ($scope) {
 
 
 // test coter "client" controle angalar attache  
-monappbanq.controller("controle002",function ($scope) {
+monappbanq.controller("controle002",function ($scope,$http) {
  
     $scope.id= 0;
  //   $scope.obj.id=$scope.id;
  
     $scope.test = function () {
+      //  console.log($scope.id);
+        //return $scope.id;
+
+        $http.get("/compte/")
+        .then(function (response) {
+            console.log(response.data);
+            $scope.e=response.data;
+        })
         
-        return $scope.obj.id;
     }
  
     $scope.positioncompte = function () {
@@ -242,7 +249,7 @@ monappbanq.controller("controle002",function ($scope) {
 
         */
          
-         console.log($scope.id);
+         
     }
 
  
