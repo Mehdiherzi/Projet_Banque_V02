@@ -284,15 +284,17 @@ app.post('/compte/:id', function (req, res) {
 })
 
 
-app.get('/compte/:id', function (req,res) {
+app.get('/compte/', function (req,res) {
 
-    var obj = banque.positionDuCompte(req.params.id);
+    var obj = banque.positionDuCompte(2);
 
     res.json(obj);
 
     console.log(obj);
 
 })
+
+
 
 app.put('/test/compte/:id/', function (req, res) {
 
