@@ -266,10 +266,9 @@ app.post('compte',function (req,res) {
 app.put('/compte/:id', function (req,res) {
 
     var id = req.params.id;
-    var somme = req.body.somme;
-    var obj = banque.creerCompte(id,0);
+    var obj = banque.creerCompte(id,15);
 
-        console.log(somme);
+        console.log();
     
   
     res.json(obj);
