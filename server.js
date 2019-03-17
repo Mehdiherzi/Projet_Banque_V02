@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 //banque.creerCompte(1,0);
-banque.creerCompte(2,0);
+banque.creerCompte(2, 0);
 
 //faire le nettoyage 
 
@@ -121,12 +121,12 @@ app.post("/compte/", function (req, res) {
 
 
 
-     
 
-    res.json(banque.creerCompte(parseInt(req.body.id),parseInt(req.body.somme)));
 
-     
-       
+    res.json(banque.creerCompte(parseInt(req.body.id), parseInt(req.body.somme)));
+
+
+
 
 
 
@@ -274,57 +274,39 @@ app.post('compte',function (req,res) {
 
 
 
-app.post('/compte/:id',function (req,res) {
-    
-    var id=req.params.id; 
-    
-    var obj = banque.creerCompte(id,0);
+app.post('/compte/:id', function (req, res) {
+
+    var id = req.params.id;
+
+    var obj = banque.creerCompte(id, 0);
     res.json(obj);
-    
+
 })
 
 
-app.get('/compte/',function (req,res) {
+app.get('/compte/:id', function (req,res) {
 
-    var id =2 ; 
-    
-    var obj = banque.positionDuCompte(id);
+    var obj = banque.positionDuCompte(req.params.id);
 
-    res.json(obj); 
+    res.json(obj);
 
     console.log(obj);
-    
-    
-      
 
-   
-} )
+})
 
-app.put('/test/compte/:id/',function (req,res) {
-    
+app.put('/test/compte/:id/', function (req, res) {
 
-
-    console.log(req.body.somme); 
-
-   
-   
-     
+    console.log(req.body.somme);
 
 
 })
 
+app.put('/test/compte/vir/:id/:somme/:idv', function (req, res) {
 
+    var obj = banque.virement(req.params.id, req.params.somme, req.params.idv);
 
-app.put('/test/compte/vir/:id/:somme/:idv',function (req,res) {
-    
-
-   
-         var obj = banque.virement(req.params.id,req.params.somme,req.params.idv);
-         
-    
-   
-    res.json(obj);   
-    var a=1;
+    res.json(obj);
+    var a = 1;
     console.log(obj);
     console.log(req.body.a);
 
@@ -348,7 +330,7 @@ app.put('/test/compte/vir/:id/:somme/:idv',function (req,res) {
 
 
 
- 
+
 
 
 

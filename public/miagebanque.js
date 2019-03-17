@@ -173,7 +173,7 @@ monappbanq.controller('MainCtrl', function ($scope, $http) {
             });
 
     }
-/*
+
 
     $scope.creecompte = function ($scope, $http) {
 
@@ -186,9 +186,9 @@ monappbanq.controller('MainCtrl', function ($scope, $http) {
 
     }
 });
-*/
 
-/*   
+
+
 // test coter "client" controle angalar attache
 //  prise de donnée 
 
@@ -217,13 +217,32 @@ monappbanq.controller('controle001',function ($scope) {
 
 }) 
 
-*/
+
 
 
 // test coter "client" controle angalar attache  
-monappbanq.controller("controle002",function () {
+monappbanq.controller("controle002",function ($scope) {
+ 
 
+    $scope.obj.id=$scope.id;
+ 
+    $scope.test = function () {
+        return $scope.obj.id;
+    }
+ 
+    $scope.positioncompte = function ($scope) {
+ /*
+        $http.get("/compte/"+$scope.id)
+            .then(function (response) {
+                $scope.test2 = response.data;
 
-    
+               
+            });
+
+        */
+         console.log($scope.obj.id);
+    }
+
+ 
 })
 
