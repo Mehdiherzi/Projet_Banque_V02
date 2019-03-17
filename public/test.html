@@ -94,11 +94,17 @@
 
     <div ng-controller="controle002">
     
-        <input type= "text" ng-model=id>
-        <button ng-click="test()">position</button>
-       {{id}}
+        <input type= "text" ng-model=obj.id>
+        <input type="text" ng-model=obj.somme>
+        <button ng-click="position()">position</button>
+        <button ng-click="cree()">cree</button>
+        <button ng-click="test()">test</button>
+      id : {{obj.id}}
+      somme : {{obj.somme}}
+       
        {{e}}
-
+       {{e1}}
+       {{ResponseDetails}}
     </div>
 
 
