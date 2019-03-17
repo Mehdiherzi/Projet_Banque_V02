@@ -243,7 +243,7 @@ monappbanq.controller("controle002", function ($scope, $http) {
     $scope.cree = function () {
 
          
-        $http.put("/compte/" + $scope.obj.id,)
+        $http.put("/compte/" + $scope.obj.id,$scope.obj.somme)
             .then(function (response) {
                 console.log(response.data);
                 $scope.e = response.data;
