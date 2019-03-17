@@ -227,6 +227,7 @@ monappbanq.controller("controle002",function ($scope) {
  //   $scope.obj.id=$scope.id;
  
     $scope.test = function () {
+        
         return $scope.obj.id;
     }
  
