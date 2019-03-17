@@ -223,15 +223,15 @@ monappbanq.controller('controle001', function ($scope) {
 // test coter "client" controle angalar attache  
 monappbanq.controller("controle002", function ($scope, $http) {
 
-    $scope.id = 0;
-    //$scope.obj = { id: 0, somme: 0 };
+   // $scope.id = 0;
+    $scope.obj = { id: 0, somme: 0 };
     //   $scope.obj.id=$scope.id;
 
     $scope.position = function () {
         console.log($scope.obj.id);
         //return $scope.id;
 
-        $http.get("/compte/" + $scope.obj.id)
+        $http.get("/compte/" + $scope.obj.id,$scope.obj.somme)
             .then(function (response) {
                 console.log(response.data);
                 $scope.e = response.data;
@@ -243,7 +243,7 @@ monappbanq.controller("controle002", function ($scope, $http) {
     $scope.cree = function () {
 
          
-        $http.put("/compte/" + $scope.obj.id)
+        $http.put("/compte/" + $scope.obj.id,)
             .then(function (response) {
                 console.log(response.data);
                 $scope.e = response.data;
