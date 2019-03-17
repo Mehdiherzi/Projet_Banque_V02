@@ -199,59 +199,91 @@ monappbanq.controller('controle000', function ($scope) {
     $scope.test = 0;
 
     $scope.alpha = function () {
-          if ($scope.test == 4) {
-          return  $scope.test = 100;
+        if ($scope.test == 4) {
+            return $scope.test = 100;
 
-          }else 
-          return  $scope.test =0;
-        
-       
+        } else
+            return $scope.test = 0;
+
+
 
     }
 
 })
 
-monappbanq.controller('controle001',function ($scope) {
+monappbanq.controller('controle001', function ($scope) {
 
-  $scope.test1=1000;
+    $scope.test1 = 1000;
 
-}) 
+})
 
 
 
 
 // test coter "client" controle angalar attache  
-monappbanq.controller("controle002",function ($scope,$http) {
- 
-    $scope.id= 0;
- //   $scope.obj.id=$scope.id;
- 
-    $scope.test = function () {
-      //  console.log($scope.id);
+monappbanq.controller("controle002", function ($scope, $http) {
+
+    $scope.id = 0;
+    //$scope.obj = { id: 0, somme: 0 };
+    //   $scope.obj.id=$scope.id;
+
+    $scope.position = function () {
+        console.log($scope.obj.id);
         //return $scope.id;
 
-        $http.get("/compte/")
-        .then(function (response) {
-            console.log(response.data);
-            $scope.e=response.data;
-        })
-        
-    }
- 
-    $scope.positioncompte = function () {
- /*
-        $http.get("/compte/"+$scope.id)
+        $http.get("/compte/" + $scope.obj.id)
             .then(function (response) {
-                $scope.test2 = response.data;
+                console.log(response.data);
+                $scope.e = response.data;
+            }
+            )
 
-               
-            });
-
-        */
-         
-         
     }
 
- 
-})
+    $scope.cree = function () {
+
+         
+        $http.put("/compte/" + $scope.obj.id)
+            .then(function (response) {
+                console.log(response.data);
+                $scope.e = response.data;
+           })
+           
+    }
+
+    $scope.test= function () {
+
+         
+        $http.put('/compte/',$scope.obj.somme);
+     
+            
+    }
+
+
+
+
+
+
+
+}
+
+
+
+
+    //  $scope.positioncompte = function () {
+    /*
+           $http.get("/compte/"+$scope.id)
+               .then(function (response) {
+                   $scope.test2 = response.data;
+   
+                  
+               });
+   
+           */
+
+
+
+
+
+)
 
