@@ -16,12 +16,12 @@ function Compte(id, somme) {
 	this.position = new Position(id, somme);
 	// pour créditer le compte
 	this.ajouter = function (somme) {
-		this.position.somme += somme*1;   // faire un parse int si cela est penible 
+		this.position.somme += somme;   // faire un parse int si cela est penible 
 		this.position.date = new Date();
 	}
 	// pour débiter le compte
 	this.retirer = function (somme) {
-		this.position.somme -= somme*1;
+		this.position.somme -= somme;
 		this.position.date = new Date();
 	}
 }
