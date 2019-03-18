@@ -289,17 +289,19 @@ app.put('/compte/:id', function (req,res) {
     }
     
     {
-        banque.retirerDuCompte(id,somme);
+      obj=  banque.retirerDuCompte(id,somme);
     }
 
         
     obj = banque.positionDuCompte(id); 
   
-    res.json(obj);
+    res.json("json : "+obj);
 
-    console.log(obj);
+    console.log("console : "+ obj);
 
 })
+
+
 
 
 app.get('/compte/:id', function (req,res) {
