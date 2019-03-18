@@ -267,30 +267,31 @@ app.post('compte',function (req,res) {
 app.put('/compte/:id', function (req,res) {
 
     var id = req.params.id;
-    var somme =parseInt(req.body.somme);// body
+    var somme =req.body.somme;// body
     var obj = banque.creerCompte(id,0);
+
+    sa = parseInt(somme);
      
-    if(somme !=0)
+    if(somme <0)
     {
-       console.log("true"+somme); 
+       console.log("neg"+ sa); 
     }else{
 
-        console.log("test : " +somme);
+        console.log("pos" + sa);
     }
-
-
+/*
+     
+    if(sa > 0)
+    banque.retirerDuCompte(id,sa);
+    console.log("neg");
+    console.log(somme);
+ 
+     */ 
+    // probleme de négatif 
+ 
+      
+       //console.log(banque.retirerDuCompte(id,somme))
   
-        banque.retirerDuCompte(id,somme);
-        console.log("negatif ");
-        console.log(somme);
-    
-    if (somme > 0) {
-        
-     banque.ajouterAuCompte(id,somme);
-     console.log("positif ");
-       console.log(somme);
-    }
-    
    
         
     obj = banque.positionDuCompte(id); 
