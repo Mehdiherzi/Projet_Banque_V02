@@ -164,9 +164,9 @@ monappbanq.controller('MainCtrl', function ($scope, $http) {
         return $scope.obj.id;
     }
 
-
+     //le scoper  de la position du compte  
     $scope.positioncompte = function ($scope) {
-
+     //requet http, pour un get 
         $http.get("/compte/")
             .then(function (response) {
                 $scope.moncompte = response.data;
@@ -180,10 +180,16 @@ monappbanq.controller('MainCtrl', function ($scope, $http) {
 
         $http.post("/compte/" + $scope.id)
             .then(function (response) {
-                $scope.macrea = response.data;
+               // $scope.macrea = response.data;
 
             });
 
+    }
+
+    $scope.detruire= function($scope,$http){
+        $http.delete("/compte/"+$scope.id)
+       
+         
     }
 });
 
@@ -223,14 +229,15 @@ monappbanq.controller('controle001', function ($scope) {
 // test coter "client" controle angalar attache  
 monappbanq.controller("controle002", function ($scope, $http) {
 
-   // $scope.id = 0;
-    $scope.obj = { id: 0, somme: 0 };
+    // création de objet d'angulars 
+    $scope.obj = { id: 0, somme: 0 }; 
     //   $scope.obj.id=$scope.id;
-
+    
+   //fonvction  donner le compte en json coté  client 
     $scope.position = function () {
-        console.log($scope.obj.id);
+        console.log($scope.obj.id); // recupération de la variable
         //return $scope.id;
-
+         // requet http pour le recupe en mode parms 
         $http.get("/compte/" + $scope.obj.id)
             .then(function (response,) {
                 console.log(response.data);
@@ -242,16 +249,31 @@ monappbanq.controller("controle002", function ($scope, $http) {
 
     $scope.cree = function () {
 
-         
+
+
+        $http.put('/compte/'+$scope.obj.id,{'somme':$scope.obj.somme})
+        .success(function(data){
+
+         $scope.obj.somme = {};
+         console.log(data);
+
+        });
+
+
+
+         /*
         $http.put("/compte/"+$scope.obj.id+"/"+$scope.obj.somme)
             .then(function (response) {
                 console.log(response.data);
                 $scope.e = response.data;
            })
+           */
            
     }
 
-    $scope.test= function () {
+
+ 
+    $scope.add_ret= function () {
 
          
         $http.put('/compte/'+$scope.obj.id,{'somme':$scope.obj.somme})
@@ -260,7 +282,7 @@ monappbanq.controller("controle002", function ($scope, $http) {
          $scope.obj.somme = {};
          console.log(data);
 
-        });
+        } )
      
             
     }
