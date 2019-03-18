@@ -5,7 +5,7 @@ function Position(id, somme) {
 	// l'id du compte
 	this.id = parseInt(id);
 	// la somme
-	this.somme = somme;
+	this.somme = parseInt(somme);
 	// la date de dernière opération
 	this.date = new Date();
 }
