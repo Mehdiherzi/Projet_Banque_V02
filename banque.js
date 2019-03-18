@@ -1,7 +1,7 @@
 var listeComptes = {};
 
 // Constructeur pour les Positions
-function Position(id, somme) {
+function Position(id,somme) {
 	// l'id du compte
 	this.id = parseInt(id);
 	// la somme
@@ -13,7 +13,7 @@ function Position(id, somme) {
 // Constructeur pour les Comptes
 function Compte(id, somme) {
 	// la position du compte
-	this.position = new Position(id, somme);
+	this.position = new Position(id,somme);
 	// pour créditer le compte
 	this.ajouter = function (somme) {
 		this.position.somme += somme;   // faire un parse int si cela est penible 
