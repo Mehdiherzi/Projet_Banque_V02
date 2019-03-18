@@ -4,6 +4,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.7.7/angular-resource.js" type="text/javascript"></script>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script src="/miagebanque.js" type="text/javascript"></script>
 
@@ -75,7 +76,7 @@
 
     </div>
 -->
-
+<!--
 
     <div ng-controller="controle000">
 
@@ -91,14 +92,14 @@
     <div ng-controller="controle001">
        {{test1}}
     </div>
-
+-->
     <div ng-controller="controle002">
     
         <input type="text" ng-model=obj.id>
         <input type="text" ng-model=obj.somme>
         <button ng-click="position()">position</button>
-        <button ng-click="cree()">cree</button>
-        <button ng-click="test()">test</button>
+        <button ng-click="cree()">cree/modifier</button>
+        <button ng-click="add_ret()">test</button>
       id : {{obj.id}}
       somme : {{obj.somme}}
        
