@@ -53,7 +53,7 @@ var detruireCompte = function (id) {
 
 
 // pour créditer un compte existant
-var ajouterAuCompte = function (id, somme) {
+var ajouterAuCompte = function (id,somme) {
 	//console.log(listeComptes);
 	// s'il n'existe pas
 	if (typeof listeComptes[id] === 'undefined')
