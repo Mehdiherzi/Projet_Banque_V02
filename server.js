@@ -270,12 +270,30 @@ app.put('/compte/:id', function (req,res) {
     var somme =parseInt(req.body.somme);// body
     var obj = banque.creerCompte(id,somme);
      
-    if(somme==0)
+    if(somme !=0||somme != '')
     {
        console.log("true"); 
+    }else{
+
+        console.log(somme);
     }
+
+
+    if(somme < 0 )
+    {
+        obj=banque.retirerDuCompte(id,somme);
+    }
+    else if (somme > 0) {
         
+       obj= banque.ajouterAuCompte(id,somme);
+    }
     
+    {
+        banque.retirerDuCompte(id,somme);
+    }
+
+        
+    obj = banque.positionDuCompte(id); 
   
     res.json(obj);
 
