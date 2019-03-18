@@ -231,8 +231,8 @@ monappbanq.controller("controle002", function ($scope, $http) {
         console.log($scope.obj.id);
         //return $scope.id;
 
-        $http.get("/compte/" + $scope.obj.id,$scope.obj.somme)
-            .then(function (response) {
+        $http.get("/compte/" + $scope.obj.id)
+            .then(function (response,) {
                 console.log(response.data);
                 $scope.e = response.data;
             }
@@ -243,7 +243,7 @@ monappbanq.controller("controle002", function ($scope, $http) {
     $scope.cree = function () {
 
          
-        $http.put("/compte/" + $scope.obj.id,$scope.obj.somme)
+        $http.put("/compte/"+$scope.obj.id+"/"+$scope.obj.somme)
             .then(function (response) {
                 console.log(response.data);
                 $scope.e = response.data;
@@ -254,7 +254,13 @@ monappbanq.controller("controle002", function ($scope, $http) {
     $scope.test= function () {
 
          
-        $http.put('/compte/',$scope.obj.somme);
+        $http.put('/compte/'+$scope.obj.id,{'somme':$scope.obj.somme})
+        .success(function(data){
+
+         $scope.obj.somme = {};
+         console.log(data);
+
+        });
      
             
     }
