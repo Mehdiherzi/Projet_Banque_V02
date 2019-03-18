@@ -116,10 +116,11 @@ app.get('/compte/:id', function (req, res) {
     console.log(banque.positionDuCompte(req.params.id));
 })
 */
-
+/*
 app.post("/compte/", function (req, res) {
     res.json(banque.creerCompte(parseInt(req.body.id), parseInt(req.body.somme)));
 })
+*/
 /*
 app.get('/compte/:id', function (req, res) {
     
@@ -266,9 +267,14 @@ app.post('compte',function (req,res) {
 app.put('/compte/:id', function (req,res) {
 
     var id = req.params.id;
-    var obj = banque.creerCompte(id,15);
-
-        console.log();
+    var somme =parseInt(req.body.somme);// body
+    var obj = banque.creerCompte(id,somme);
+     
+    if(somme==0)
+    {
+       console.log("true"); 
+    }
+        
     
   
     res.json(obj);
