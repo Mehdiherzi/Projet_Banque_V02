@@ -4,15 +4,21 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.7.7/angular-resource.js" type="text/javascript"></script>
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">-->
 
-    <script src="/miagebanque.js" type="text/javascript"></script>
+    <script src="/miagebanque.js" type="text/javascript"></script>  <!-- fichier angulars -->
 
-    <script src="./banque.js" type="text/javascript"></script>
+    <script src="./banque.js" type="text/javascript"></script>  <!-- fichier computing \ app métier  -->
     <meta charset="utf-8" />
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- pour identifier l'appareil  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> <!-- bootstrap   -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+    <title>BANQUE € </title>
+
 
 
 
@@ -22,7 +28,7 @@
 
 <body>
 
-  <!-- {{1+2}}--> 
+    <!-- {{1+2}}-->
     <!--
     <div ng-controller="MonCtrl">
         <h1>test</h1>
@@ -76,7 +82,7 @@
 
     </div>
 -->
-<!--
+    <!--
 
     <div ng-controller="controle000">
 
@@ -93,22 +99,106 @@
        {{test1}}
     </div>
 -->
-    <div ng-controller="controle002">
-    
-        <input type="text" ng-model=obj.id>
-        <input type="text" ng-model=obj.somme>
-        <button ng-click="position()">position</button>
-        <button ng-click="cree()">cree/modifier</button>
-        <button ng-click="add_ret()">test</button>
-      id : {{obj.id}}
-      somme : {{obj.somme}}
+
+
+
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Banque € </a>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Conteneur principal -->
+
+    <div class="container-fluid" ng-controller="controle002">   <!--CONTROLLER-->
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-sm-12  col-md-offset-1">
+
+                <div class="form-horizontal">
+
+
+
+                    <div class="form-group">
+
+                        <div>
+                            <label for="id" class="col-sm-2 col-xs-12 control-label">ID Compte</label>
+                            <div class="col-sm-4 col-xs-12">
+                                <input type="number" ng-model=obj.id class="form-control" id="id" placeholder="0"
+                                    autofocus tabindex="1">
+                                    <!-- INPUT DE ID-->
+                            </div>
+
+                            <label for="Somme" class="col-sm-2 col-xs-12 control-label">Somme</label>
+                            <div class="col-sm-4 col-xs-12">
+                                <input type="number" ng-model=obj.somme class="form-control" id="Somme" placeholder="0"
+                                    autofocus tabindex="1">
+
+                                    <!-- INPUT DE SOMME-->
+
+                                    <p>Somme peux etre négatif pour retirer </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="resultat" class="col-sm-2 col-xs-12 control-label">retour</label>
+                        <div class="col-sm-10 col-xs-12">
+
+                            <p id="Id" readonly tabindex="0"> id : {{obj.id}} </p>    <!-- RETOUR VISUEL DE LA ID-->
+
+                            <p id="Somme" readonly tabindex="0"> somme : {{obj.somme}}</p>  <!-- RETOUR VISUEL DE LA SOMME-->
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-4 col-xs-6">   <!-- BOUTON  DE LA POSITION 'ETAT DU COMPTE'-->
+                                <button type="button" class="btn btn-primary" tabindex="2" ng-click="position()"data-toggle="tooltip" data-placement="top" title="'BOUTON  DE LA POSITION 'ETAT DU COMPTE'" >position</button>
+                            
+
+
+                              <!-- BOUTON  DE LA CREATION DU COMPTE-->
+                                <button type="button" class="btn btn-primary" tabindex="4" ng-click="cree()"data-toggle="tooltip" data-placement="top" title=" BOUTON  DE LA CREATION DU COMPTE">cree</button>
        
-       {{e}}
-       {{e1}}
-       {{ResponseDetails}}
+                                  <!-- BOUTON  POUR LA MIS A JOUR DU COMPTE -->    
+                                    <button type="button" class="btn btn-primary" tabindex="5" ng-click="add_ret()" data-toggle="tooltip" data-placement="top" title="BOUTON  POUR LA MIS A JOUR DU COMPTE">
+                                        ajouter ou retirer</button>
+                        
+                        
+
+                        </div>
+
+                    </div>
+                    <div>
+
+                    </div>
+
+                    <div>
+                            <div class="alert alert-secondary" role="alert">
+                                    {{e}}   <!--retour serveur-->
+                                    {{e1}}
+                                    {{ResponseDetails}}
+                                  </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
+    </div>
 </body>
 
 </html>
