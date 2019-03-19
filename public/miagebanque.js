@@ -5,6 +5,9 @@ monappbanq = angular.module('miageBanq', [
 
     //'ngResource'
 ])
+
+ // ATTENTION CI DESSOUS LES CADAVRE => LES FACTORY , COMTROLLER  ET SERVICE 
+ // NOTRE LA PARTIE FONCTIONNELLE COMMENCE A LA LIGNE 234
 /*
 monappbanq.factory('MaFactory', function ($resource) {
 
@@ -155,7 +158,7 @@ monappbanq.controller('MainCtrl',function ($scope, MaFactory) {
 
 // test  $http
 
-
+/*
 monappbanq.controller('MainCtrl', function ($scope, $http) {
 
     $scope.id = $scope.obj.id;
@@ -224,6 +227,8 @@ monappbanq.controller('controle001', function ($scope) {
 })
 
 
+*/
+
 
 
 // test coter "client" controle angalar attache  
@@ -237,7 +242,7 @@ monappbanq.controller("controle002", function ($scope, $http) {
     $scope.position = function () {
         console.log($scope.obj.id); // recupération de la variable
         //return $scope.id;
-         // requet http pour le recupe en mode parms 
+         // requet http pour  recupe en mode parms 
         $http.get("/compte/" + $scope.obj.id)
             .then(function (response,) {
                 console.log(response.data);
@@ -249,8 +254,8 @@ monappbanq.controller("controle002", function ($scope, $http) {
 
     $scope.cree = function () {
 
-
-
+        // pour la création du compte  pour se faire vous faite  postion un commpte en notent dans l'idée non crée est cela retourne false 
+      // requet http pour  recupe en mode parms  , JSON pour body
         $http.put('/compte/'+$scope.obj.id,{'somme':$scope.obj.somme})
         .success(function(data){
 
@@ -275,9 +280,12 @@ monappbanq.controller("controle002", function ($scope, $http) {
  
     $scope.add_ret= function () {
 
-         
+        // requete de pour mettre a jour  le compte 
         $http.put('/compte/'+$scope.obj.id,{'somme':$scope.obj.somme})
+
         .success(function(data){
+            // retour en cas de  ou cela passe 
+            // je n'est prevus en cas non trouver "4**"
 
          $scope.obj.somme = {};
          console.log(data);
