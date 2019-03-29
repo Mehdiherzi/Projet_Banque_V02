@@ -326,6 +326,13 @@ app.get('/compte/:id', function (req,res) {
 
 })
 
+app.get('/compte/liste' ,function (req,res) {
+
+    var obj = banque.Liste();
+    res.json(obj);
+    
+})
+
 
 
 /*
