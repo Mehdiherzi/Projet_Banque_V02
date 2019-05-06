@@ -6,7 +6,7 @@ var bodyParser = require('body-parser'); // import module body-parser
 var banque = require('./banque.js'); // import module banque
 
 var app = express();
-var port = "3000";
+var port = "3002";
 
 
 var path = require('path');
